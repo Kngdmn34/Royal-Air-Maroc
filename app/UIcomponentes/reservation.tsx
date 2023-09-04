@@ -22,7 +22,7 @@ const Reservation = () => {
                                 ? 'bg-red-800 text-white shadow-lg'
                                 : 'text-green-800 hover:bg-white/[0.12] hover:text-white'
                         )
-                    }><Plane />Book a flight</Tab>
+                    }>Book a flight</Tab>
                     <Tab className={({ selected }) =>
                         classNames(
                             'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',
@@ -31,7 +31,7 @@ const Reservation = () => {
                                 ? 'bg-red-800 text-white shadow-lg'
                                 : 'text-green-800 hover:bg-white/[0.12] hover:text-white'
                         )
-                    }>Tab 2</Tab>
+                    }>Check-in</Tab>
                     <Tab className={({ selected }) =>
                         classNames(
                             'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',
@@ -40,10 +40,10 @@ const Reservation = () => {
                                 ? 'bg-red-800 text-white shadow-lg'
                                 : 'text-green-800 hover:bg-white/[0.12] hover:text-white'
                         )
-                    }>Tab 3</Tab>
+                    }>Flight Status</Tab>
                 </Tab.List>
                 <Tab.Panels className="mt-2">
-                    <Tab.Panel className='rounded-xl bg-gray-400 p-3'>Content 1</Tab.Panel>
+                    <Tab.Panel className='rounded-xl bg-gray-400 p-3'><span className='flex justify-between p-6'><input className='p-2 border border-black rounded-lg' placeholder='From' /> <input className='p-2 border border-black rounded-lg' placeholder='To' /></span></Tab.Panel>
                     <Tab.Panel className='rounded-xl bg-gray-400 p-3'>Content 2</Tab.Panel>
                     <Tab.Panel className='rounded-xl bg-gray-400 p-3'>Content 3</Tab.Panel>
                 </Tab.Panels>
