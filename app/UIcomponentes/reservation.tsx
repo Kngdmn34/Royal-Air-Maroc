@@ -51,6 +51,7 @@ const Reservation = () => {
                             <div className='flex justify-between p-6'>
                                 <input className='p-2 w-1/3 mr-2 border border-black rounded-lg ring-2 ring-green-900' placeholder='From' />
                                 <input className='p-2 w-1/3 ml-2 border border-black rounded-lg ring-2 ring-red-900' placeholder='To' />
+                                <button>Mode</button>
                                 <button>Search</button>
                             </div>
                         </Tab.Panel>

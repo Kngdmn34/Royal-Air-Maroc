@@ -28,10 +28,10 @@ export default function RootLayout({
       <body className={poppins.className}>
 
         {children}
-
+        <footer ><Footer /></footer>
       </body>
 
-      <footer ><Footer /></footer>
+
 
     </html>
   )
