@@ -9,6 +9,7 @@ import Reservation from './UIcomponentes/reservation'
 //image
 import Header from '@/public/images/headerram.png';
 import Image from 'next/image'
+import ReservationBackground from '@/app/UIcomponentes/reservationbackground'
 //icons
 import { ChevronLeft } from 'lucide-react'
 
@@ -40,8 +41,14 @@ export default function Home() {
 
         </div>
 
-        <div className='max-w-[50%] mx-auto  pt-6'>
-          <Reservation />
+        <div className='relative bg-green-900 rounded-lg pt-6 mt-6 w-full h-full mb-6'>
+          <div className='absolute w-full h-full'>
+            <ReservationBackground />
+          </div>
+          <div className='relative z-10 w-full h-full p-11'>
+
+            <Reservation />
+          </div>
         </div>
       </main >
 
