@@ -13,7 +13,9 @@ import { Plane } from 'lucide-react';
 const FormValues = z.object({
     destination: z.string().max(4),
     origin: z.string().max(4),
-    date: z.string().max(9)
+    date: z.string().max(9, { message: 'Ex : 20201124' }).transform((dateStr) => new Date(dateStr).toString(),)
+
+
 
 
 })
@@ -35,16 +37,23 @@ const Reservation = () => {
             FormValues.parse({
                 ...formValue,
                 date: newValue
-            })
+
+            });
             setFormValues({
                 ...formValue,
                 date: newValue
             })
+
+
         } catch (error) {
             console.log('Date Validation Error', error)
         }
 
+
+
     }
+
+
 
     const handleDestinationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newValue = e.target.value;
@@ -88,8 +97,14 @@ const Reservation = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const { origin, destination, date } = formValue;
+        try {
+            FormValues.parse(formValue)
+        } catch (error) {
+            console.log('Validation Error', error)
+            return;
+        }
 
+        const { origin, destination, date } = formValue;
         const options = {
             method: 'GET',
             url: `https://timetable-lookup.p.rapidapi.com/TimeTable/${origin}/${destination}/${date}/`,
@@ -149,7 +164,15 @@ const Reservation = () => {
                                     <div className='flex justify-between'>
                                         <input type='text' value={formValue.origin} onChange={handleOriginChange} className='p-2 w-[50%] md:w-1/3 mr-2 border border-black rounded-lg ring-2 ring-green-900' placeholder='From' />
                                         <input type='text' value={formValue.destination} onChange={handleDestinationChange} className='p-2 w-[50%] md:w-1/3 ml-2 border border-black rounded-lg ring-2 ring-red-900' placeholder='To' />
-                                        <input type='text' value={formValue.date} onChange={handleDateChange} className='p-2 w-[60%] md:w-1/3 ml-6 border border-black rounded-lg ring-2 ring-green-900' placeholder='YYYY/MM/DD' />
+                                        <input
+                                            type="text"
+                                            value={formValue.date}
+                                            onChange={handleDateChange}
+                                            className="p-2 w-[60%] md:w-1/3 ml-6 border border-black rounded-lg ring-2 ring-green-900"
+                                            placeholder="YYYYMMDD"
+
+                                            title="Please enter a date in the format YYYY-MM-DD"
+                                        />
 
                                         <button type='submit' className='p-2 pl-6 '>Search</button>
                                     </div>

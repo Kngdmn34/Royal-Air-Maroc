@@ -23,11 +23,11 @@ const Nav = () => {
                 </div>
 
                 {/* Navigation Bmt-3uttons */}
-                <div className="flex space-x-4 shadow-lg p-4 text-black ">
-                    <button className="font-light hover:text-neutral-300 transition "><Search /></button>
-                    <button className="font-light border-l border-gray-400 px-2 hover:text-neutral-300 transition">Services</button>
-                    <button className="font-light border-l border-gray-400 px-2 hover:text-neutral-300 transition">Contact</button>
-                    <button className="font-light border-l border-gray-400 px-2 hover:text-neutral-300 transition">About</button>
+                <div className="flex space-x-4 bg-gray-50 bg-opacity-80 shadow-lg rounded-full backdrop-blur-md p-4 font-semibold ">
+                    <button className=" hover:text-neutral-300 transition "><Search /></button>
+                    <button className=" border-l  border-gray-400 px-2 tracking-widest hover:text-neutral-300 transition">Services</button>
+                    <button className=" border-l border-gray-400 px-2 tracking-widest hover:text-neutral-300 transition">Contact</button>
+                    <button className=" border-l border-gray-400 px-2 tracking-widest hover:text-neutral-300 transition">About</button>
 
                 </div>
 

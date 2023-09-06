@@ -6,6 +6,8 @@ import { Separator } from '@/components/ui/separator'
 //Lib
 import Principe from '@/app/welcome/principe'
 import Reservation from './UIcomponentes/reservation'
+import { useEffect } from 'react'
+
 //image
 import Header from '@/public/images/headerram.png';
 import Image from 'next/image'
@@ -14,6 +16,8 @@ import ReservationBackground from '@/app/UIcomponentes/reservationbackground'
 import { ChevronLeft } from 'lucide-react'
 
 export default function Home() {
+
+
   return (
     <>
       <main className='bg-gray-50' >
