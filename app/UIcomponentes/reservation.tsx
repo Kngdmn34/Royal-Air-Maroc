@@ -1,17 +1,113 @@
+
+import axios from 'axios';
+import React, { useState } from 'react'
+import { z } from 'zod'
 //lib
 import { Tab } from '@headlessui/react'
 import classNames from 'classnames'
+
+
 //icons
 import { Plane } from 'lucide-react';
 
-//bg
+const FormValues = z.object({
+    destination: z.string().max(4),
+    origin: z.string().max(4),
+    date: z.string().max(9)
 
 
-
-
-import React from 'react'
+})
+type FormValuesType = z.infer<typeof FormValues>;
 
 const Reservation = () => {
+
+
+    const [formValue, setFormValues] = useState<FormValuesType>({
+        destination: '',
+        origin: '',
+        date: ''
+    })
+
+    const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = e.target.value;
+
+        try {
+            FormValues.parse({
+                ...formValue,
+                date: newValue
+            })
+            setFormValues({
+                ...formValue,
+                date: newValue
+            })
+        } catch (error) {
+            console.log('Date Validation Error', error)
+        }
+
+    }
+
+    const handleDestinationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = e.target.value;
+
+
+        try {
+            FormValues.parse({
+                ...formValue,
+                destination: newValue
+            });
+            setFormValues({
+                ...formValue,
+                destination: newValue,
+            })
+
+        } catch (error) {
+            console.log('Validation Error', error)
+        }
+    }
+
+    const handleOriginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newValue = e.target.value;
+
+        try {
+
+            FormValues.parse({
+                ...formValue,
+                origin: newValue
+            }),
+                setFormValues({
+                    ...formValue,
+                    origin: newValue
+                })
+
+        } catch (error) {
+            console.log('Validation Error', error)
+        }
+    }
+
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        const { origin, destination, date } = formValue;
+
+        const options = {
+            method: 'GET',
+            url: `https://timetable-lookup.p.rapidapi.com/TimeTable/${origin}/${destination}/${date}/`,
+            params: { Airline: 'ram' },
+            headers: {
+                'X-RapidAPI-Key': `9283bf4c77msh2ba49837fb248e7p1568b5jsn28ac77f7ca6c`,
+                'X-RapidAPI-Host': 'timetable-lookup.p.rapidapi.com'
+            },
+        };
+
+        try {
+            const response = await axios.request(options);
+            console.log(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
 
     return (
         <div className="max-w-[50%] mx-auto border-4 border-gray-50 backdrop-blur-lg overflow px-6 py-16 sm:px-0 rounded-xl shadow-lg">
@@ -48,11 +144,16 @@ const Reservation = () => {
                     </Tab.List>
                     <Tab.Panels className="mt-2">
                         <Tab.Panel className='rounded-xl bg-gray-400 p-3'>
-                            <div className='flex justify-between p-6'>
-                                <input className='p-2 w-1/3 mr-2 border border-black rounded-lg ring-2 ring-green-900' placeholder='From' />
-                                <input className='p-2 w-1/3 ml-2 border border-black rounded-lg ring-2 ring-red-900' placeholder='To' />
-                                <button>Mode</button>
-                                <button>Search</button>
+                            <div className='flex justify-between p-16 md:p-11'>
+                                <form onSubmit={handleSubmit} >
+                                    <div className='flex justify-between'>
+                                        <input type='text' value={formValue.origin} onChange={handleOriginChange} className='p-2 w-[50%] md:w-1/3 mr-2 border border-black rounded-lg ring-2 ring-green-900' placeholder='From' />
+                                        <input type='text' value={formValue.destination} onChange={handleDestinationChange} className='p-2 w-[50%] md:w-1/3 ml-2 border border-black rounded-lg ring-2 ring-red-900' placeholder='To' />
+                                        <input type='text' value={formValue.date} onChange={handleDateChange} className='p-2 w-[60%] md:w-1/3 ml-6 border border-black rounded-lg ring-2 ring-green-900' placeholder='YYYY/MM/DD' />
+
+                                        <button type='submit' className='p-2 pl-6 '>Search</button>
+                                    </div>
+                                </form>
                             </div>
                         </Tab.Panel>
                         <Tab.Panel className='rounded-xl bg-gray-400 p-3'>Content 2</Tab.Panel>

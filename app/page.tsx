@@ -23,15 +23,7 @@ export default function Home() {
         <header className='w-full p-46 rounded-lg border-b-4 border-green-700 pb-4'>
           <Image src={Header} alt='header' className='' />
         </header>
-        <div className='relative bg-green-900 rounded-lg pt-6 mt-6 w-full h-full mb-6'>
-          <div className='absolute w-full h-full'>
-            <ReservationBackground />
-          </div>
-          <div className='relative z-10 w-full h-full p-11'>
 
-            <Reservation />
-          </div>
-        </div>
         <div className='fixed max-w-[50%] mx-auto p-6'><Separator /></div>
         <div className=' pt-6 text-center mt-2  mx-auto'>
           <h2 className='text-left p-11 text-extralight  text-5xl ml-11 tracking-widest'>Start Your Next Trip</h2>
@@ -44,6 +36,15 @@ export default function Home() {
             </div>
           </div>
         </div >
+        <div className='relative bg-green-900 rounded-lg pt-6 mt-6 w-full h-full mb-6'>
+          <div className='absolute w-full h-full'>
+            <ReservationBackground />
+          </div>
+          <div className='relative z-10 w-full h-full p-11'>
+
+            <Reservation />
+          </div>
+        </div>
 
 
         <div className=''>
