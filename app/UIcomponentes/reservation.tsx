@@ -3,8 +3,8 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { z } from 'zod'
 //lib
-import { Tab } from '@headlessui/react'
-import classNames from 'classnames'
+import { Tab } from '@headlessui/react';
+import classNames from 'classnames';
 
 
 //icons
@@ -13,7 +13,7 @@ import { Plane } from 'lucide-react';
 const FormValues = z.object({
     destination: z.string().max(4),
     origin: z.string().max(4),
-    date: z.string().max(9, { message: 'Ex : 20201124' }).transform((dateStr) => new Date(dateStr).toString(),)
+    date: z.string().max(9, { message: 'Ex : 20201124' }).transform((dateStr) => new Date(dateStr).toString())
 
 
 
@@ -23,6 +23,9 @@ type FormValuesType = z.infer<typeof FormValues>;
 
 const Reservation = () => {
 
+    let parseString = require('xml2js').parseString;
+
+    const [flightDetails, setFlightDetails] = useState(null)
 
     const [formValue, setFormValues] = useState<FormValuesType>({
         destination: '',
@@ -117,7 +120,14 @@ const Reservation = () => {
 
         try {
             const response = await axios.request(options);
-            console.log(response.data);
+            parseString(response.data, (err: any, result: any) => {
+                if (err) {
+                    console.error('Error parsing XML:', err)
+                    return;
+                }
+                const flightDetails = result.OTA_AirDetailsRS.FlightDetails[0];
+                console.log('Flight Details:', flightDetails);
+            })
         } catch (error) {
             console.error(error);
         }
@@ -158,7 +168,7 @@ const Reservation = () => {
                         }>Flight Status</Tab>
                     </Tab.List>
                     <Tab.Panels className="mt-2">
-                        <Tab.Panel className='rounded-xl bg-gray-400 p-3'>
+                        <Tab.Panel className='rounded-xl bg-gray-50 p-3'>
                             <div className='flex justify-between p-16 md:p-11'>
                                 <form onSubmit={handleSubmit} >
                                     <div className='flex justify-between'>
@@ -174,13 +184,13 @@ const Reservation = () => {
                                             title="Please enter a date in the format YYYY-MM-DD"
                                         />
 
-                                        <button type='submit' className='p-2 pl-6 '>Search</button>
+                                        <button type='submit' className='flex p-3 ml-6 rounded-lg hover:opacity-60 border border-black bg-red-900 text-white '><Plane className='mr-2' />Search</button>
                                     </div>
                                 </form>
                             </div>
                         </Tab.Panel>
-                        <Tab.Panel className='rounded-xl bg-gray-400 p-3'>Content 2</Tab.Panel>
-                        <Tab.Panel className='rounded-xl bg-gray-400 p-3'>Content 3</Tab.Panel>
+                        <Tab.Panel className='rounded-xl bg-gray-50 p-3'>Content 2</Tab.Panel>
+                        <Tab.Panel className='rounded-xl bg-gray-50 p-3'>Content 3</Tab.Panel>
                     </Tab.Panels>
                 </Tab.Group>
             </div>

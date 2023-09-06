@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from 'react'
 //icons
 import { ChevronRight, ChevronLeft } from 'lucide-react'
 
-// cities images with parallax effect ...
+// cities images 
 const carouselData = [
     {
         id: 1,
@@ -42,9 +42,9 @@ export default function Principe() {
     })
 
     const [currentImage, setCurrentImage] = useState(0);
-    const [textContent, setTextContent] = useState(carouselData[0]); // Initialize text content with the first item
+    const [textContent, setTextContent] = useState(carouselData[0]);
 
-    // Handle image change on scroll
+
     const nextImage = () => {
         setCurrentImage((prevImage) => (prevImage + 1) % imageCount);
     };
@@ -58,12 +58,12 @@ export default function Principe() {
 
     const imageSpring = useSpring(0);
 
-    // Update the image spring value when the currentImage changes
+
     useEffect(() => {
         imageSpring.set(currentImage);
     }, [currentImage, imageSpring]);
 
-    // Update text content when currentImage changes
+
     useEffect(() => {
         setTextContent(carouselData[currentImage]);
     }, [currentImage]);
@@ -108,12 +108,7 @@ export default function Principe() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <button onClick={prevImage} className="text-white absolute top-1/2 left-6 transform -translate-y-1/2">
-                        <ChevronLeft />
-                    </button>
-                    <button onClick={nextImage} className="text-white absolute top-1/2 right-6 transform -translate-y-1/2">
-                        <ChevronRight />
-                    </button>
+
                 </motion.div>
                 <motion.div
                     className="absolute inset-0 z-20"
