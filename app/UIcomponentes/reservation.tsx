@@ -8,7 +8,7 @@ import classNames from 'classnames';
 
 
 //icons
-import { PlaneTakeoff, ChevronDown, Plane, PlaneLanding, ChevronLeft } from 'lucide-react';
+import { PlaneTakeoff, ChevronDown, Plane, PlaneLanding, ChevronLeft, BadgeInfo } from 'lucide-react';
 
 
 interface Flight {
@@ -32,12 +32,12 @@ const FlightResults: React.FC<FlightResultsProps> = ({ flights, setData }) => {
 
     return (
         <Tab.Panel>
-            <div className="flex bg-white border border-black p-4 rounded-lg">
+            <div className="rounded-xl bg-gray-50 p-3">
                 <button className='flex text-end p-2' onClick={() => setData([])}><ChevronLeft /></button>
                 <ul className=' p-6 mr-6'>
                     {flights.map((flight, index) => (
                         <li key={index}>
-                            <div className='flex justify-between p-6  bg-gray-100 rounded-xl  border-2 border-black shadow-md mt-4'>
+                            <div className='flex justify-between p-6  bg-white rounded-xl  border-3 border-gray-500 shadow-md mt-4'>
                                 <div className='grid grid-cols-4 gap-4'>
                                     <div className='border-l-2 border-black p-2 pt-2'><span className='flex py-2 ml-2'><PlaneTakeoff /></span> <span className='font-semibold'>{flight.origin} </span>  <span className='flex py-2 ml-2'><PlaneLanding /></span> <span className='font-semibold'>{flight.destination}</span> </div>
                                     <div className='grid border-l-2 items-center text-center border-black p-2 pt-2'>{flight.number_of_changes == 1 ? <span className='pr-2 p-2 border rounded-lg shadow-lg border-black'>One Stop</span> : <span className='pr-2 p-2 border rounded-lg shadow-lg border-black'>{flight.number_of_changes == 0 ? <span className='pr-2 p-2  rounded-lg '>Direct</span> : <span >Stops : {flight.number_of_changes}</span>}</span>}  </div>
@@ -184,13 +184,14 @@ const Reservation = () => {
         }
     }
     return (
-        <div className="max-w-[50%] mx-auto border-4 border-gray-50 backdrop-blur-lg overflow p-36 sm:px-0 rounded-xl shadow-lg">
+        <div className="max-w-[83%] mx-auto border-4 border-gray-200 backdrop-blur-md overflow p-36 sm:px-0 rounded-xl shadow-xl">
+            <span className='text-6xl p-2 '>Book Your Flight <button className='text-2xl'><BadgeInfo /></button></span>
             <div className=' p-2'>
                 <Tab.Group>
-                    <Tab.List className="flex space-x-1 justify-center bg-blue-900/20 p-1 rounded-xl">
+                    <Tab.List className="flex space-x-1 justify-center bg-blue-900/20 p-2 rounded-xl">
                         <Tab className={({ selected }) =>
                             classNames(
-                                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',
+                                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black',
                                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-green-900 focus:outline-none focus:ring-2',
                                 selected
                                     ? 'bg-red-800 text-white shadow-lg'
@@ -199,7 +200,7 @@ const Reservation = () => {
                         }>Book a Flight</Tab>
                         <Tab className={({ selected }) =>
                             classNames(
-                                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',
+                                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black',
                                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-green-900 focus:outline-none focus:ring-2',
                                 selected
                                     ? 'bg-red-800 text-white shadow-lg'
@@ -208,7 +209,7 @@ const Reservation = () => {
                         }>Check-in</Tab>
                         <Tab className={({ selected }) =>
                             classNames(
-                                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white',
+                                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black',
                                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-green-900 focus:outline-none focus:ring-2',
                                 selected
                                     ? 'bg-red-800 text-white shadow-lg'
@@ -218,11 +219,12 @@ const Reservation = () => {
                     </Tab.List>
                     <Tab.Panels className="mt-2">
 
+
                         {data.length > 0 ? (
                             <FlightResults flights={data} setData={setData} />
                         )
                             :
-                            <Tab.Panel className='rounded-xl bg-gray-50 p-3'>
+                            <Tab.Panel className='rounded-xl bg-gray-200 p-3 backdrop-blur-lg shadow-md'>
                                 <span className='p-6  text-4xl font-extralight'>One-Way <button disabled={true}><ChevronDown /></button></span>
 
                                 <div className='flex justify-between p-16 md:p-11'>

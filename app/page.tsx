@@ -20,9 +20,7 @@ import Oneworld from './UIcomponentes/oneworld'
 
 export default function Home() {
 
-  useEffect(() => {
-    alert('The project is still under development - Next Js / Tailwind ( RapidApi - Photoshop, Figma) ')
-  }, [])
+
 
   return (
     <>
@@ -37,10 +35,10 @@ export default function Home() {
         <div className='fixed max-w-[50%] mx-auto p-6 '><Separator /></div>
         <div className=' pt-6 text-center mt-2  mx-auto'>
           <h2 className='text-left p-11 text-extralight  text-5xl ml-11 tracking-widest'>Start Your Next Trip</h2>
-          <div className='grid grid-cols-3 pt-6 mt-2 bg-gray-900 mx-auto rounded-lg'>
+          <div className='grid grid-cols-3 pt-6 mt-2  mx-auto rounded-lg'>
             <span className='col-span-2'><Principe /></span>
             <div className='grid grid-rows-3 gap-y-4 p-4 rounded-xl overflow-hidden'>
-              <span className='block border border-white  p-2 ml-6 rounded-xl text-end pt-28'>
+              <span className='block border border-black  p-2 ml-6 rounded-xl text-end pt-28'>
                 <div className='text-white' >
                   Next Update
                 </div>
@@ -48,11 +46,11 @@ export default function Home() {
                   Travel Requirements <ChevronLeft />
                 </span>
               </span>
-              <span className='border border-white p-2 ml-6 rounded-xl text-end  pt-28'>
+              <span className='border border-black p-2 ml-6 rounded-xl text-end  pt-28'>
                 <div className='text-white'>
                   Next Update
                 </div><span className='flex cursor-pointer bg-black rounded-lg text-white w-full p-6 hover:decoration-solid bg-opacity-30 '>Activities <ChevronLeft className='' /></span></span>
-              <span className='border border-white  p-2 ml-6 rounded-xl text-end pt-28'>
+              <span className='border border-black  p-2 ml-6 rounded-xl text-end pt-28'>
                 <div className='text-white'>
                   Next Update
                 </div><span className='flex cursor-pointer bg-black rounded-lg text-white w-full p-6 hover:decoration-solid bg-opacity-30  '>DUTY FREE <ChevronLeft /></span></span>
@@ -60,14 +58,14 @@ export default function Home() {
           </div>
         </div >
 
-        <div className='relative bg-gray-900 rounded-lg pt-6 mt-6 w-full h-full mb-6'>
+        <div className='relative  rounded-lg pt-6 mt-6 w-full h-full mb-6'>
 
           <div className='relative z-10 w-full h-full p-11'>
 
             <Reservation />
           </div>
         </div>
-        <div className='max-w-[72%] mx-auto p-6 '>
+        <div className='max-w-[50%] mx-auto p-2 '>
 
           <Oneworld />
 
