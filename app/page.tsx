@@ -1,7 +1,7 @@
 'use client'
 //UI components
 import Nav from '@/app/UIcomponentes/nav'
-import Spacer from '@/app/UIcomponentes/spacer'
+
 import { Separator } from '@/components/ui/separator'
 //Lib
 import Principe from '@/app/welcome/principe'
