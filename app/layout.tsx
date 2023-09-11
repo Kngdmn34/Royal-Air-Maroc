@@ -1,6 +1,6 @@
 import './globals.css'
 import Nav from './UIcomponentes/nav'
-
+import { motion } from 'framer-motion'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import Footer from '@/app/components/footer'
@@ -27,7 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
 
-      <body className={poppins.className}>
+      <body
+
+        className={poppins.className}>
 
         {children}
         <footer ><Footer /></footer>

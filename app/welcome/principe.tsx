@@ -79,7 +79,8 @@ export default function Principe() {
     return (
         <>
             <div
-                className="w-full ml-6 h-screen overflow-hidden relative grid place-items-center"
+
+                className="w-74 h-screen pb-24 ml-6  overflow-hidden relative grid place-items-center"
                 ref={ref}
             >
                 <AnimatePresence mode='wait'>

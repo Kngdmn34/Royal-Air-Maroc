@@ -7,7 +7,7 @@ import { AlertCircle, Search } from 'lucide-react';
 
 const Nav = () => {
     return (
-        <nav className="fixed top-0 left-0 w-full backdrop-blur-md bg-opacity-50 p-4 border-b-8 outline-double outline-green-900 border-red-800 z-10">
+        <nav className="fixed top-0 left-0 w-full backdrop-blur-md bg-opacity-50 p-2 border-b-8 outline-double outline-green-900 border-red-800 z-10">
             <div className="container relative mx-auto flex justify-between items-center">
 
 

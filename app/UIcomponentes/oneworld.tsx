@@ -7,10 +7,10 @@ const Oneworld = () => {
     return (
         <div className='relative w-full m-2 '>
 
-            <Image alt='heart' className='relative  ml-6 rounded-xl' src={OneWorld} loading='lazy' width={900} height={700} quality={100} />
+            <Image alt='heart' className='relative  ml-6 rounded-xl' src={OneWorld} loading='lazy' width={900} height={700} quality={100} placeholder='blur' />
             <div >
-                <Image alt='logo' src={Logo} className='absolute inset-0 mr-36 mt-16 border-r border-white' loading='lazy' quality={100} width={200} height={70} />
-                <Image alt='ramlogo' src={Ramlogo} className='absolute inset-0 ml-48 mt-16' width={200} height={70} loading='lazy' />
+                <Image alt='logo' src={Logo} className='absolute inset-0 mr-36 mt-16 border-r border-white' loading='lazy' quality={100} width={200} height={70} placeholder='blur' />
+                <Image alt='ramlogo' src={Ramlogo} className='absolute inset-0 ml-48 mt-16' width={200} height={70} loading='lazy' placeholder='blur' />
             </div>
 
 
