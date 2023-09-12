@@ -85,6 +85,7 @@ export default function Principe() {
             >
                 <AnimatePresence mode='wait'>
                     <motion.h1
+
                         style={{ y: textY }}
                         className="font-bold text-white text-7xl md:text-9xl relative z-10"
                         key={currentImage}

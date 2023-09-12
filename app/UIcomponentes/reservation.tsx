@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { z } from 'zod'
 //lib
 import { Tab } from '@headlessui/react';
+import { format } from "date-fns"
 import classNames from 'classnames';
 import Model from '@/app/UIcomponentes/model'
 import { Calendar as CalendarIcon } from "lucide-react"
@@ -13,6 +14,18 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
+import { useForm } from "react-hook-form"
+import { cn } from "@/lib/utils"
+import {
+    Form,
+    FormControl,
+    FormDescription,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/components/ui/form"
+import { Button } from "@/components/ui/button"
 
 
 //icons
@@ -81,6 +94,7 @@ const FormValues = z.object({
 type FormValuesType = z.infer<typeof FormValues>;
 
 const Reservation = () => {
+
 
     const [data, setData] = useState<Flight[]>([])
     const [formValue, setFormValues] = useState<FormValuesType>({
@@ -194,8 +208,8 @@ const Reservation = () => {
         }
     }
     return (
-        <div id="scrollToSection" className="max-w-[83%] mx-auto border-4 border-gray-200 backdrop-blur-sm overflow p-36 sm:px-0 rounded-xl shadow-xl">
-            <span className='text-6xl p-2 ml-11 '>Book Your Flight </span><span className='flex justify-end mr-2 p-4'><Model /></span>
+        <div className="max-w-[83%] mx-auto border-4 border-gray-200 backdrop-blur-sm overflow p-36 sm:px-0 rounded-xl shadow-xl">
+            <div data-aos='fade-left' data-aos-delay='1200' className='text-6xl p-2 ml-11 '>Book Your Flight </div><span className='flex justify-end mr-2 p-4'><Model /></span>
             <div className=' p-2'>
                 <Tab.Group>
                     <Tab.List className="flex space-x-1 justify-center bg-blue-900/20 p-2 rounded-xl">
@@ -263,15 +277,15 @@ const Reservation = () => {
                         }
                         <Tab.Panel className='rounded-xl text-center bg-gray-50 p-3'>Next Update</Tab.Panel>
                         <Tab.Panel className='rounded-xl text-center bg-gray-50 p-3'>Next Update</Tab.Panel>
-                    </Tab.Panels>
-                </Tab.Group>
-            </div>
+                    </Tab.Panels >
+                </Tab.Group >
+            </div >
             <div className='max-w-[50%] mx-auto grid grid-cols-3 gap-5 text-center items-center p-2 cursor-pointer '>
-                <span className=' border-r-2 p-6 border-black '><CarFront size={50} className='ml-4' /><span className='mr-11'>Car Rent</span></span>
-                <span className=' p-6 pl-11 '><Bed size={50} className='ml-4' /><span className='mr-11'>Hotels</span></span>
-                <span className=' border-l-2 p-6 pl-11 border-black '><Utensils size={50} className='ml-4' /><span className='mr-11'>Meals</span></span>
+                <span data-aos="fade-right" className=' border-r-2 p-6 border-black '><CarFront size={50} className='ml-4' /><span className='mr-11'>Car Rent</span></span>
+                <span data-aos="fade-down" className=' p-6 pl-11 '><Bed size={50} className='ml-4' /><span className='mr-11'>Hotels</span></span>
+                <span data-aos="fade-left" className=' border-l-2 p-6 pl-11 border-black '><Utensils size={50} className='ml-4' /><span className='mr-11'>Meals</span></span>
             </div>
-        </div>
+        </div >
 
     )
 }

@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import Footer from '@/app/components/footer'
+import { AOSInit } from './aos'
+
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -27,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
 
+      <AOSInit />
       <body
 
         className={poppins.className}>
