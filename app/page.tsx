@@ -15,10 +15,11 @@ import { useEffect } from 'react'
 import Header from '@/public/images/newheader.jpg';
 import Image from 'next/image'
 import Airplane from '@/public/images/avioncut.png'
-import ReservationBackground from '@/app/UIcomponentes/reservationbackground'
+
 import template from '@/public/images/template.png'
-import OneWorld from '@/public/images/Oneworld.png'
+
 import Logo from '@/public/images/Logo_Royal_Air_Maroc_2020.png'
+import HeaderTemplate from '@/public/images/headerbg.jpg'
 //icons
 import { ChevronLeft } from 'lucide-react'
 import Oneworld from './UIcomponentes/oneworld'
@@ -44,9 +45,10 @@ export default function Home() {
           <Nav />
         </div>
         <header data-aos="fade-up" className='relative flex justify-center w-full pb-6    mt-6 '>
+          <Image className=' shadow-xl rounded-xl' quality={60} src={Header} alt='header' placeholder='blur' width={1000} />
 
-          <Image className='shadow-xl rounded-xl  ' quality={60} src={Header} alt='header' placeholder='blur' width={1000} />
-          <h1 data-aos='fade-right' className='absolute text-6xl mb-16 font-extralight right-0 bottom-0 mr-48 shadow-sm'>A Walk Above The Clouds</h1>
+
+          <h1 data-aos='fade-right' className='absolute  text-7xl mb-16 font-extralight right-0 bottom-0 mr-48 shadow-sm'>A Walk Above The Clouds</h1>
           <Image data-aos='fade-right' data-aos-delay='2000' className='absolute right-0 mr-44 mt-20 ' width={300} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
 
           <div data-aos='fade-right' className='absolute left-0 bottom-0 ml-72 mb-64  bg-green-900 border-2 rounded-xl   w-44 h-32 shadow-xl'>
