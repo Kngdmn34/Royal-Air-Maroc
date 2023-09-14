@@ -45,11 +45,13 @@ export default function Home() {
           <Nav />
         </div>
         <header data-aos="fade-up" className='relative flex justify-center w-full pb-6    mt-6 '>
-          <Image className=' shadow-xl rounded-xl' quality={60} src={Header} alt='header' placeholder='blur' width={1000} />
+          <Image className=' shadow-xl rounded-xl ml-48 blur-md' quality={60} src={Header} alt='background' loading='lazy' placeholder='blur' width={1200} />
+          <Image className='absolute shadow-xl rounded-xl mr-48' quality={60} src={Header} alt='header' placeholder='blur' width={1000} />
 
 
-          <h1 data-aos='fade-right' className='absolute  text-7xl mb-16 font-extralight right-0 bottom-0 mr-48 shadow-sm'>A Walk Above The Clouds</h1>
-          <Image data-aos='fade-right' data-aos-delay='2000' className='absolute right-0 mr-44 mt-20 ' width={300} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
+
+          <h1 data-aos='fade-right' className='absolute  text-8xl mb-16 font-extralight right-0 bottom-0 mr-48 '>A Walk Above The Clouds</h1>
+          <Image data-aos='fade-right' data-aos-delay='2000' className='absolute right-0 mr-44 mt-20 ' width={400} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
 
           <div data-aos='fade-right' className='absolute left-0 bottom-0 ml-72 mb-64  bg-green-900 border-2 rounded-xl   w-44 h-32 shadow-xl'>
 
