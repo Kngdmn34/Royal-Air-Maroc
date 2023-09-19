@@ -1,9 +1,10 @@
 //plugins
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
-
+import Image from 'next/image'
 //icons
 import { ChevronRight, ChevronLeft } from 'lucide-react'
+import Airplane from '@/public/images/avioncut.png'
 
 // cities images 
 const carouselData = [
@@ -83,7 +84,9 @@ export default function Principe() {
                 className="w-74 h-screen pb-24 ml-6  overflow-hidden relative grid place-items-center"
                 ref={ref}
             >
+
                 <AnimatePresence mode='wait'>
+
                     <motion.h1
 
                         style={{ y: textY }}
@@ -93,7 +96,9 @@ export default function Principe() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
+
                         {textContent.cityName}
+
                         <span className="text-2xl flex border-l p-2">{textContent.cityPrice}</span>
                     </motion.h1>
                 </AnimatePresence>
@@ -110,8 +115,9 @@ export default function Principe() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-
+                    <Image data-aos='fade-right' data-aos-delay='2000' className='absolute right-0  mb-11 ' width={200} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
                 </motion.div>
+
                 <motion.div
                     className="absolute inset-0 z-20"
                     style={{
@@ -121,7 +127,9 @@ export default function Principe() {
                     }}
                 />
 
+
             </div>
+
 
         </>
     );

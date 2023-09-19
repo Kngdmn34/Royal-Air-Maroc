@@ -208,8 +208,8 @@ const Reservation = () => {
         }
     }
     return (
-        <div className="max-w-[83%] mx-auto border-4 border-gray-200 backdrop-blur-sm overflow p-36 sm:px-0 rounded-xl shadow-xl">
-            <div data-aos='fade-left' data-aos-delay='1200' className='text-6xl p-2 ml-11 '>Book Your Flight </div><span className='flex justify-end mr-2 p-4'><Model /></span>
+        <div className="  border-4 border-gray-200 backdrop-blur-2xl overflow p-6 sm:px-0 rounded-xl shadow-xl">
+            <div data-aos='fade-left' data-aos-delay='1200' className='text-6xl text-white font-light p-2 ml-11 '>Book Your Flight </div><span className='flex justify-end mr-2 p-4'><Model /></span>
             <div className=' p-2'>
                 <Tab.Group>
                     <Tab.List className="flex space-x-1 justify-center bg-blue-900/20 p-2 rounded-xl">
@@ -251,7 +251,7 @@ const Reservation = () => {
                             <Tab.Panel className='rounded-xl bg-gray-200 p-3 backdrop-blur-lg shadow-md'>
                                 <span className='p-6  text-4xl font-extralight'>One-Way <button disabled={true}><ChevronDown /></button></span>
 
-                                <div className='flex justify-between p-16 md:p-11'>
+                                <div className='flex justify-between p-6 md:p-11'>
 
                                     <form onSubmit={handleSubmit} >
                                         <div className='flex justify-between'>

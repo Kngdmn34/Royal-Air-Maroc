@@ -11,10 +11,10 @@ const Nav = () => {
             <div className="container relative mx-auto flex justify-between items-center">
 
 
-                <div className='bg-yellow-100 w-33 flex p-2 rounded-full shadow-lg animate-pulse'>
+                <div className='bg-yellow-100 w-33 flex p-2 rounded-md shadow-lg animate-pulse'>
 
                     <AlertCircle className='mr-4 animate-ping text-red-600 duration-1000' />
-                    <span className='ml-2 border-l-4 border-black px-2 '>Notification</span>
+                    <span className='ml-2 border-l-4 border-black px-2 '>ALERTS</span>
 
                 </div>
 
@@ -23,7 +23,7 @@ const Nav = () => {
                 </div>
 
                 {/* Navigation Bmt-3uttons */}
-                <div className="flex space-x-4 bg-gray-50 bg-opacity-80 shadow-lg rounded-full backdrop-blur-md p-2 font-semibold ">
+                <div className="flex space-x-4 bg-gray-50 bg-opacity-80 shadow-lg rounded-md backdrop-blur-md p-2 font-semibold ">
                     <button className=" hover:text-neutral-500 transition "><Search /></button>
                     <button className=" border-l  border-gray-400 px-2 tracking-widest hover:text-neutral-500 transition">Services</button>
                     <button className=" border-l border-gray-400 px-2 tracking-widest hover:text-neutral-500 transition">Contact</button>

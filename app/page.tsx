@@ -12,7 +12,7 @@ import Reservation from './UIcomponentes/reservation'
 import { useEffect } from 'react'
 
 //image
-import Header from '@/public/images/newheader.jpg';
+import Header from '@/public/images/headerimage.jpg';
 import Image from 'next/image'
 import Airplane from '@/public/images/avioncut.png'
 
@@ -44,27 +44,25 @@ export default function Home() {
         <div className=''>
           <Nav />
         </div>
-        <header data-aos="fade-up" className='relative flex justify-center w-full pb-6    mt-6 '>
-          <Image className=' shadow-xl rounded-xl ml-48 blur-md' quality={60} src={Header} alt='background' loading='lazy' placeholder='blur' width={1200} />
-          <Image className='absolute shadow-xl rounded-xl mr-48' quality={60} src={Header} alt='header' placeholder='blur' width={1000} />
+        <header className='relative flex justify-center w-full pb-6 mt-6 '>
+          <Image className=' shadow-xl rounded-xl w-full blur-sm brightness-50' quality={60} src={Header} alt='background' loading='eager' placeholder='blur' width={400} height={100} />
+          <div id='scrollToSection' className='absolute  rounded-lg  mt-6 max-w-48  mb-6'>
 
+            <div className=' max-w-48 mt-28'>
 
-
-          <h1 data-aos='fade-right' className='absolute  text-8xl mb-16 font-extralight right-0 bottom-0 mr-48 '>A Walk Above The Clouds</h1>
-          <Image data-aos='fade-right' data-aos-delay='2000' className='absolute right-0 mr-44 mt-20 ' width={400} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
-
-          <div data-aos='fade-right' className='absolute left-0 bottom-0 ml-72 mb-64  bg-green-900 border-2 rounded-xl   w-44 h-32 shadow-xl'>
-
-            <Image className='absolute inset-0 pt-2 ' src={Logo} alt='logo' width={300} />
+              <Reservation data-aos="fade-right" />
+            </div>
           </div>
 
         </header>
 
-        <div className='fixed max-w-[50%] mx-auto p-6 '><Separator /></div>
-        <div className=' pt-6 text-center mt-11  mx-auto'>
-          <h2 data-aos="fade-up-right" className='text-left p-11 text-extralight  text-5xl ml-11 tracking-widest'>Start Your Next Trip</h2>
-          <div className='grid grid-cols-3 pt-6 mt-2  mx-auto rounded-lg'>
+
+        <div className='relative pt-6 text-center mt-11  mx-auto'>
+          <Image data-aos="fade-up" className='absolute w-full ' placeholder='blur' src={template} alt='bg' />
+          <h2 data-aos="fade-up-right" className=' text-left p-11 text-extralight  text-5xl ml-11 tracking-widest'>Start Your Next Trip</h2>
+          <div className=' grid grid-cols-3 pt-6 mt-2  mx-auto rounded-lg'>
             <span data-aos="zoom-out" className='col-span-2'><Principe /></span>
+
             <div data-aos="fade-down" data-aos-delay="500" className='grid grid-rows-3 gap-y-4 p-4 rounded-xl overflow-hidden'>
               <span className='block border border-black  p-2 ml-6 rounded-xl text-end pt-28'>
                 <div className='text-black' >
@@ -86,13 +84,7 @@ export default function Home() {
           </div>
         </div >
 
-        <div id='scrollToSection' className='relative  rounded-lg pt-6 mt-6 w-full h-full mb-6'>
 
-          <div className='relative z-10 w-full h-full p-6 mt-11'>
-            <Image data-aos="fade-up" className='absolute ' placeholder='blur' src={template} alt='bg' />
-            <Reservation data-aos="fade-right" />
-          </div>
-        </div>
         <div data-aos="flip-up" data-aos-delay='200' className='max-w-[50%] mx-auto p-2 '>
 
           <Oneworld />
