@@ -209,7 +209,7 @@ const Reservation = () => {
     }
     return (
         <div className="  border-4 border-gray-200 backdrop-blur-2xl overflow p-6 sm:px-0 rounded-xl shadow-xl">
-            <div data-aos='fade-left' data-aos-delay='1200' className='text-6xl text-white font-light p-2 ml-11 '>Book Your Flight </div><span className='flex justify-end mr-2 p-4'><Model /></span>
+            <div data-aos='fade-left' data-aos-delay='1200' className='text-6xl text-white font-light p-2 ml-11 '>Book Your Flight </div><span className='flex text-white justify-end mr-2 p-4'><Model /></span>
             <div className=' p-2'>
                 <Tab.Group>
                     <Tab.List className="flex space-x-1 justify-center bg-blue-900/20 p-2 rounded-xl">
@@ -259,7 +259,7 @@ const Reservation = () => {
                                             <input type='text' value={formValue.origin} onChange={handleOriginChange} className='p-2 w-[50%] md:w-1/3 mr-2 border border-black rounded-lg ring-2 ring-green-900' placeholder='From' />
                                             <input type='text' value={formValue.destination} onChange={handleDestinationChange} className='p-2 w-[50%] md:w-1/3 ml-2 border border-black rounded-lg ring-2 ring-red-900' placeholder='Destination' />
                                             <input
-                                                type="text"
+                                                type="number"
                                                 value={formValue.date}
                                                 onChange={handleDateChange}
                                                 className="p-2 w-[60%] md:w-1/3 ml-6 border border-black rounded-lg ring-2 ring-green-900"
