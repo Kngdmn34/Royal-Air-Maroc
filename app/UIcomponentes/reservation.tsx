@@ -14,6 +14,17 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover"
+import { Input } from "@/components/ui/input";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+
 import { useForm } from "react-hook-form"
 import { cn } from "@/lib/utils"
 import {
@@ -29,7 +40,7 @@ import { Button } from "@/components/ui/button"
 
 
 //icons
-import { PlaneTakeoff, ChevronDown, Plane, PlaneLanding, ChevronLeft, CarFront, Bed, Utensils } from 'lucide-react';
+import { PlaneTakeoff, ChevronDown, Users, Plane, PlaneLanding, ChevronLeft, CarFront, Bed, Utensils } from 'lucide-react';
 
 
 interface Flight {
@@ -212,32 +223,32 @@ const Reservation = () => {
             <div data-aos='fade-left' data-aos-delay='1200' className='text-6xl text-white font-light p-2 ml-11 '>Book Your Flight </div><span className='flex text-white justify-end mr-2 p-4'><Model /></span>
             <div className=' p-2'>
                 <Tab.Group>
-                    <Tab.List className="flex space-x-1 justify-center bg-blue-900/20 p-2 rounded-xl">
+                    <Tab.List className="flex space-x-1 justify-center bg-gray-200 p-2 rounded-xl">
                         <Tab className={({ selected }) =>
                             classNames(
                                 'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black',
                                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-green-900 focus:outline-none focus:ring-2',
                                 selected
                                     ? 'bg-red-800 text-white shadow-lg'
-                                    : 'text-green-800 hover:bg-white/[0.12] hover:text-white'
+                                    : 'text-black hover:bg-white/[0.12] hover:text-emerald-900'
                             )
                         }>Book a Flight</Tab>
                         <Tab className={({ selected }) =>
                             classNames(
-                                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black',
+                                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black ',
                                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-green-900 focus:outline-none focus:ring-2',
                                 selected
                                     ? 'bg-red-800 text-white shadow-lg'
-                                    : 'text-green-800 hover:bg-white/[0.12] hover:text-white'
+                                    : 'text-black hover:bg-white/[0.12] hover:text-emerald-900'
                             )
                         }>Check-in</Tab>
                         <Tab className={({ selected }) =>
                             classNames(
-                                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black',
+                                'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black ',
                                 'ring-white ring-opacity-60 ring-offset-2 ring-offset-green-900 focus:outline-none focus:ring-2',
                                 selected
                                     ? 'bg-red-800 text-white shadow-lg'
-                                    : 'text-green-800 hover:bg-white/[0.12] hover:text-white'
+                                    : 'text-black hover:bg-white/[0.12] hover:text-emerald-900'
                             )
                         }>Flight Status</Tab>
                     </Tab.List>
@@ -248,28 +259,58 @@ const Reservation = () => {
                             <FlightResults flights={data} setData={setData} />
                         )
                             :
-                            <Tab.Panel className='rounded-xl bg-gray-200 p-3 backdrop-blur-lg shadow-md'>
-                                <span className='p-6  text-4xl font-extralight'>One-Way <button disabled={true}><ChevronDown /></button></span>
+                            <Tab.Panel className='rounded-md bg-gray-50 p-3 backdrop-blur-lg shadow-md'>
+                                <div className='flex flex-row justify-between p-6 '>
+                                    <span className='px-3 text-2xl md:text-4xl font-extralight'>One-Way
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger><ChevronDown /></DropdownMenuTrigger>
+                                            <DropdownMenuContent>
+                                                <DropdownMenuLabel>One Way</DropdownMenuLabel>
+                                                <DropdownMenuSeparator />
+                                                <DropdownMenuItem disabled={true}>Round Trip</DropdownMenuItem>
 
-                                <div className='flex justify-between p-6 md:p-11'>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu></span>
+                                    <span className='pt-2'>
+                                        <Popover>
+                                            <PopoverTrigger><Users className='hover:border hover:border-black ' /></PopoverTrigger>
+                                            <PopoverContent className='p-2 '>
+                                                <span className='flex flex-row p-2  text-left align-bottom '> Adult <Input className=' p-2 ml-6 ' type='number' placeholder='Adults' /></span>
+                                                <span className='flex flex-row p-2  text-left align-bottom'> Enfants <Input className=' p-2 ml-3 ' type='number' disabled={true} /></span>
+
+                                            </PopoverContent>
+                                        </Popover>
+                                    </span>
+                                    <span className='px-3 text-2xl  font-extralight'>Eco- Class
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger><ChevronDown className='pt-2' /></DropdownMenuTrigger>
+                                            <DropdownMenuContent>
+                                                <DropdownMenuLabel>Economic Class</DropdownMenuLabel>
+                                                <DropdownMenuSeparator />
+                                                <DropdownMenuItem disabled={true}>First Class</DropdownMenuItem>
+
+                                            </DropdownMenuContent>
+                                        </DropdownMenu></span>
+                                </div>
+                                <div className='flex  pt-6'>
 
                                     <form onSubmit={handleSubmit} >
-                                        <div className='flex justify-between'>
+                                        <div className='flex flex-row'>
 
-                                            <input type='text' value={formValue.origin} onChange={handleOriginChange} className='p-2 w-[50%] md:w-1/3 mr-2 border border-black rounded-lg ring-2 ring-green-900' placeholder='From' />
-                                            <input type='text' value={formValue.destination} onChange={handleDestinationChange} className='p-2 w-[50%] md:w-1/3 ml-2 border border-black rounded-lg ring-2 ring-red-900' placeholder='Destination' />
+                                            <input type='text' value={formValue.origin} onChange={handleOriginChange} className='p-2  mr-2 border border-black rounded-md ' placeholder='From' />
+                                            <input type='text' value={formValue.destination} onChange={handleDestinationChange} className='p-2   ml-2 border border-black rounded-md ' placeholder='Destination' />
                                             <input
                                                 type="number"
                                                 value={formValue.date}
                                                 onChange={handleDateChange}
-                                                className="p-2 w-[60%] md:w-1/3 ml-6 border border-black rounded-lg ring-2 ring-green-900"
+                                                className="p-2 w-[60%] md:w-1/3 ml-6 border border-black rounded-md"
                                                 placeholder="YYYY-MM-DD"
                                                 pattern='\d{4}-\d{1,2}-\d{1,2}'
 
                                                 title="Please enter a date in the format YYYY-MM-DD"
                                             />
 
-                                            <button type='submit' className='flex p-3 ml-6 rounded-lg hover:opacity-60 border border-black bg-red-900 text-white '><PlaneTakeoff className='mr-2' />Search</button>
+                                            <button type='submit' className='flex p-3 ml-6 rounded-lg hover:opacity-60 border border-black bg-red-800 text-white '><PlaneTakeoff className='mr-2' />Search</button>
                                         </div>
                                     </form>
                                 </div>
@@ -280,10 +321,10 @@ const Reservation = () => {
                     </Tab.Panels >
                 </Tab.Group >
             </div >
-            <div className='max-w-[50%] mx-auto grid grid-cols-3 gap-5 text-center items-center p-2 cursor-pointer '>
-                <span data-aos="fade-right" className=' border-r-2 p-6 border-black '><CarFront size={50} className='ml-4' /><span className='mr-11'>Car Rent</span></span>
+            <div className='max-w-[50%] mx-auto grid grid-cols-3 gap-5 text-white text-center items-center p-2 cursor-pointer '>
+                <span data-aos="fade-right" className=' border-r-2 p-6 border-neutral-500  '><CarFront size={50} className='ml-4' /><span className='mr-11'>Car Rent</span></span>
                 <span data-aos="fade-down" className=' p-6 pl-11 '><Bed size={50} className='ml-4' /><span className='mr-11'>Hotels</span></span>
-                <span data-aos="fade-left" className=' border-l-2 p-6 pl-11 border-black '><Utensils size={50} className='ml-4' /><span className='mr-11'>Meals</span></span>
+                <span data-aos="fade-left" className=' border-l-2 p-6 pl-11 border-neutral-500 '><Utensils size={50} className='ml-4' /><span className='mr-11'>Meals</span></span>
             </div>
         </div >
 

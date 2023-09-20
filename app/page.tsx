@@ -45,7 +45,7 @@ export default function Home() {
           <Nav />
         </div>
         <header className='relative flex justify-center w-full pb-6 mt-6 '>
-          <Image className=' shadow-xl rounded-xl w-full blur-sm brightness-50' quality={60} src={Header} alt='background' loading='eager' placeholder='blur' width={400} height={100} />
+          <Image className=' shadow-xl rounded-xl w-full blur-sm brightness-50' quality={40} src={Header} alt='background' loading='lazy' placeholder='blur' width={400} height={100} />
           <div id='scrollToSection' className='absolute  rounded-lg  mt-6 max-w-48  mb-6'>
 
             <div className=' max-w-48 mt-28'>
