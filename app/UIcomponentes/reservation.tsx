@@ -297,7 +297,7 @@ const Reservation = () => {
                                     <form onSubmit={handleSubmit} >
                                         <div className='flex flex-row'>
 
-                                            <input type='text' value={formValue.origin} onChange={handleOriginChange} className='p-2  mr-2 border border-black rounded-md ' placeholder='From' />
+                                            <input type='text' value={formValue.origin} onChange={handleOriginChange} className='p-2  mr-2 border border-black rounded-md ' placeholder='Country From ex: MA' />
                                             <input type='text' value={formValue.destination} onChange={handleDestinationChange} className='p-2   ml-2 border border-black rounded-md ' placeholder='Destination' />
                                             <input
                                                 type="number"
