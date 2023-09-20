@@ -2,7 +2,8 @@
 
 
 //UI components
-import Nav from '@/app/UIcomponentes/nav'
+import Nav from '@/app/UIcomponentes/nav';
+import NewsLetter from './UIcomponentes/NewsLetter';
 
 import { Separator } from '@/components/ui/separator'
 //Lib
@@ -93,8 +94,8 @@ export default function Home() {
         </div>
 
 
-        <div className=''>
-
+        <div className='mt-44'>
+          <NewsLetter />
         </div>
 
 
