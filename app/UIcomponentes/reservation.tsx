@@ -304,8 +304,8 @@ const Reservation = () => {
                                                 value={formValue.date}
                                                 onChange={handleDateChange}
                                                 className="p-2 w-[60%] md:w-1/3 ml-6 border border-black rounded-md"
-                                                placeholder="YYYY-MM-DD"
-                                                pattern='\d{4}-\d{1,2}-\d{1,2}'
+                                                placeholder="YYYYMMDD"
+                                                pattern='\d{4}\d{1,2}\d{1,2}'
 
                                                 title="Please enter a date in the format YYYY-MM-DD"
                                             />

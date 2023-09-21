@@ -86,7 +86,7 @@ export default function Home() {
         </div >
 
 
-        <div data-aos="flip-up" data-aos-delay='200' className='max-w-[50%] mx-auto p-2 mt-28 '>
+        <div data-aos="flip-up" data-aos-delay='200' className='max-w-[50%] mx-auto p-2 mt-28  '>
 
           <Oneworld />
 
