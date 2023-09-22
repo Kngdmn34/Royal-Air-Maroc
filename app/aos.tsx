@@ -7,8 +7,9 @@ import "aos/dist/aos.css";
 export const AOSInit = () => {
     useEffect(() => {
         AOS.init({
-            once: false,
+            once: true,
             duration: 1000,
+
         });
     }, [])
 

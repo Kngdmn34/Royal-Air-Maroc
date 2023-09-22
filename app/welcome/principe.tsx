@@ -115,7 +115,7 @@ export default function Principe() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Image data-aos='fade-right' data-aos-delay='2000' className='absolute right-0  mb-11 ' width={200} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
+                    <Image data-aos='fade-right' data-aos-delay='2000' className='absolute -right-2 md:right-0  m md:mb-11 ' width={200} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
                 </motion.div>
 
                 <motion.div

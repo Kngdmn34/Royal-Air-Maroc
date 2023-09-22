@@ -40,7 +40,7 @@ import { Button } from "@/components/ui/button"
 
 
 //icons
-import { PlaneTakeoff, ChevronDown, Users, Plane, PlaneLanding, ChevronLeft, CarFront, Bed, Utensils } from 'lucide-react';
+import { PlaneTakeoff, ChevronDown, Users, Luggage, PlaneLanding, ChevronLeft, CarFront, Bed, Utensils } from 'lucide-react';
 
 
 interface Flight {
@@ -219,8 +219,8 @@ const Reservation = () => {
         }
     }
     return (
-        <div className="  border-4 border-gray-200 backdrop-blur-2xl overflow p-6 sm:px-0 rounded-xl shadow-xl">
-            <div data-aos='fade-left' data-aos-delay='1200' className='text-6xl text-white font-light p-2 ml-11 '>Book Your Flight </div><span className='flex text-white justify-end mr-2 p-4'><Model /></span>
+        <div className=" mx-auto md:max-w-[96%] border-4 border-gray-200 backdrop-blur-2xl overflow md:p-6 sm:px-0 rounded-xl shadow-xl">
+            <div data-aos='fade-left' data-aos-delay='1200' className='text-2xl tex-center md:text-6xl  text-white font-light p-2 md:ml-11 '>Book Your Flight </div><span className='flex text-white justify-end mr-2 p-4'><Model /></span>
             <div className=' p-2'>
                 <Tab.Group>
                     <Tab.List className="flex space-x-1 justify-center bg-gray-200 p-2 rounded-xl">
@@ -254,26 +254,27 @@ const Reservation = () => {
                     </Tab.List>
                     <Tab.Panels className="mt-2">
 
-
                         {data.length > 0 ? (
                             <FlightResults flights={data} setData={setData} />
                         )
                             :
-                            <Tab.Panel className='rounded-md bg-gray-50 p-3 backdrop-blur-lg shadow-md'>
-                                <div className='flex flex-row justify-between p-6 '>
-                                    <span className='px-3 text-2xl md:text-4xl font-extralight'>One-Way
+                            <Tab.Panel className='rounded-md bg-gray-100 p-3 backdrop-blur-lg shadow-md'>
+                                <div className='flex flex-row align-bottom justify-between p-2 md:p-6 '>
+                                    <span className=' px-3 border-2 border-black rounded-md  md:border-none shadow-lg md:shadow-none  text-lg md:text-4xl font-extralight'>
                                         <DropdownMenu>
-                                            <DropdownMenuTrigger><ChevronDown /></DropdownMenuTrigger>
+
+                                            <DropdownMenuTrigger className='flex items-center '>One - Way <ChevronDown className='mt-1 md:ml-3' /></DropdownMenuTrigger>
                                             <DropdownMenuContent>
                                                 <DropdownMenuLabel>One Way</DropdownMenuLabel>
                                                 <DropdownMenuSeparator />
                                                 <DropdownMenuItem disabled={true}>Round Trip</DropdownMenuItem>
 
                                             </DropdownMenuContent>
-                                        </DropdownMenu></span>
-                                    <span className='pt-2'>
+                                        </DropdownMenu>
+                                    </span>
+                                    <span className=' px-3 border-2 border-black md:shadow-none  md:border-none rounded-md shadow-lg '>
                                         <Popover>
-                                            <PopoverTrigger><Users className='hover:border hover:border-black ' /></PopoverTrigger>
+                                            <PopoverTrigger className='flex items-center'><Users size={30} /><ChevronDown className='mt-1 font-light md:ml-3' /></PopoverTrigger>
                                             <PopoverContent className='p-2 '>
                                                 <span className='flex flex-row p-2  text-left align-bottom '> Adult <Input className=' p-2 ml-6 ' type='number' placeholder='Adults' /></span>
                                                 <span className='flex flex-row p-2  text-left align-bottom'> Enfants <Input className=' p-2 ml-3 ' type='number' disabled={true} /></span>
@@ -281,9 +282,9 @@ const Reservation = () => {
                                             </PopoverContent>
                                         </Popover>
                                     </span>
-                                    <span className='px-3 text-2xl  font-extralight'>Eco- Class
+                                    <span className=' px-3 border-2 border-black rounded-md shadow-lg md:shadow-none md:border-none text-lg md:text-4xl font-extralight'>
                                         <DropdownMenu>
-                                            <DropdownMenuTrigger><ChevronDown className='pt-2' /></DropdownMenuTrigger>
+                                            <DropdownMenuTrigger className='flex items-center'>Eco - Class <ChevronDown className='mt-1 md:ml-3' /></DropdownMenuTrigger>
                                             <DropdownMenuContent>
                                                 <DropdownMenuLabel>Economic Class</DropdownMenuLabel>
                                                 <DropdownMenuSeparator />
@@ -292,25 +293,27 @@ const Reservation = () => {
                                             </DropdownMenuContent>
                                         </DropdownMenu></span>
                                 </div>
-                                <div className='flex  pt-6'>
+                                <div className=''>
 
                                     <form onSubmit={handleSubmit} >
-                                        <div className='flex flex-row'>
+                                        <div className='flex max-w-[50%] mx-auto md:max-w-[100%] pt-4 '>
+                                            <div className='block  space-y-3  md:space-y-0  md:flex'>
+                                                <input type='text' value={formValue.origin} onChange={handleOriginChange} className='p-2 w-52 border border-black rounded-md ' placeholder='Country From ex: MA' />
+                                                <input type='text' value={formValue.destination} onChange={handleDestinationChange} className='p-2  w-52 md:ml-2 border border-black rounded-md ' placeholder='Destination' />
+                                                <input
+                                                    type="number"
+                                                    value={formValue.date}
+                                                    onChange={handleDateChange}
+                                                    className="p-2 w-52  md:w-1/3 md:ml-6 border border-black rounded-md"
+                                                    placeholder="YYYYMMDD"
+                                                    pattern='\d{4}\d{1,2}\d{1,2}'
 
-                                            <input type='text' value={formValue.origin} onChange={handleOriginChange} className='p-2  mr-2 border border-black rounded-md ' placeholder='Country From ex: MA' />
-                                            <input type='text' value={formValue.destination} onChange={handleDestinationChange} className='p-2   ml-2 border border-black rounded-md ' placeholder='Destination' />
-                                            <input
-                                                type="number"
-                                                value={formValue.date}
-                                                onChange={handleDateChange}
-                                                className="p-2 w-[60%] md:w-1/3 ml-6 border border-black rounded-md"
-                                                placeholder="YYYYMMDD"
-                                                pattern='\d{4}\d{1,2}\d{1,2}'
-
-                                                title="Please enter a date in the format YYYY-MM-DD"
-                                            />
-
-                                            <button type='submit' className='flex p-3 ml-6 rounded-lg hover:opacity-60 border border-black bg-red-800 text-white '><PlaneTakeoff className='mr-2' />Search</button>
+                                                    title="Please enter a date in the format YYYY-MM-DD"
+                                                />
+                                                <span className='flex justify-center items-center'>
+                                                    <button type='submit' className='flex p-3 md:ml-6 rounded-lg hover:opacity-60 border border-black bg-red-800 text-white '><PlaneTakeoff className='mr-2' />Search</button>
+                                                </span>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -321,10 +324,11 @@ const Reservation = () => {
                     </Tab.Panels >
                 </Tab.Group >
             </div >
-            <div className='max-w-[50%] mx-auto grid grid-cols-3 gap-5 text-white text-center items-center p-2 cursor-pointer '>
-                <span data-aos="fade-right" className=' border-r-2 p-6 border-neutral-500  '><CarFront size={50} className='ml-4' /><span className='mr-11'>Car Rent</span></span>
-                <span data-aos="fade-down" className=' p-6 pl-11 '><Bed size={50} className='ml-4' /><span className='mr-11'>Hotels</span></span>
-                <span data-aos="fade-left" className=' border-l-2 p-6 pl-11 border-neutral-500 '><Utensils size={50} className='ml-4' /><span className='mr-11'>Meals</span></span>
+            <div className='hidden md:flex flex-row justify-between items-center  mx-auto bg-gray-100 rounded-md space-x-5 w-full p-3  align-middle mt-3 '>
+                <span data-aos="fade-right" className=' cursor-pointer   '><CarFront size={50} className='' /><span className='text-center'>Car Rent</span></span>
+                <span data-aos="fade-down" className=' cursor-pointer  '><Bed size={50} className='' /><span className=''>Hotels</span></span>
+                <span data-aos="fade-down" className='cursor-pointer '><Luggage size={50} className='' /><span className='text-center'>Luggage</span></span>
+                <span data-aos="fade-left" className='cursor-pointer  '><Utensils size={50} className='' /><span className=''>Meals</span></span>
             </div>
         </div >
 
