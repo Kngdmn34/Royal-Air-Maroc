@@ -219,7 +219,7 @@ const Reservation = () => {
         }
     }
     return (
-        <div className=" mx-auto md:max-w-[96%] border-4 border-gray-200 backdrop-blur-2xl overflow md:p-6 sm:px-0 rounded-xl shadow-xl">
+        <div className=" mx-auto w-full  md:max-w-[96%] border-4 border-gray-200 backdrop-blur-2xl overflow md:p-6 sm:px-0 rounded-xl shadow-xl">
             <div data-aos='fade-left' data-aos-delay='1200' className='text-2xl tex-center md:text-6xl  text-white font-light p-2 md:ml-11 '>Book Your Flight </div><span className='flex text-white justify-end mr-2 p-4'><Model /></span>
             <div className=' p-2'>
                 <Tab.Group>
@@ -258,45 +258,47 @@ const Reservation = () => {
                             <FlightResults flights={data} setData={setData} />
                         )
                             :
-                            <Tab.Panel className='rounded-md bg-gray-100 p-3 backdrop-blur-lg shadow-md'>
-                                <div className='flex flex-row align-bottom justify-between p-2 md:p-6 '>
-                                    <span className=' px-3 border-2 border-black rounded-md  md:border-none shadow-lg md:shadow-none  text-lg md:text-4xl font-extralight'>
-                                        <DropdownMenu>
+                            <Tab.Panel className='relative rounded-md bg-gray-100 p-3 backdrop-blur-lg shadow-md'>
+                                <div className='flex overflow-hidden   justify-between p-2 md:p-6 '>
+                                    <div className='block   mx-auto align-middle md:space-y-0 md:flex md:flex-row md:justify-between p-4  md:space-x-5 items-center  rounded-md shadow-lg text-lg md:text-4xl font-extralight'>
+                                        <span className='   '>
+                                            <DropdownMenu>
 
-                                            <DropdownMenuTrigger className='flex items-center '>One - Way <ChevronDown className='mt-1 md:ml-3' /></DropdownMenuTrigger>
-                                            <DropdownMenuContent>
-                                                <DropdownMenuLabel>One Way</DropdownMenuLabel>
-                                                <DropdownMenuSeparator />
-                                                <DropdownMenuItem disabled={true}>Round Trip</DropdownMenuItem>
+                                                <DropdownMenuTrigger className='flex items-center space-y-3 '>One - Way <ChevronDown className='mt-1 md:ml-3' /></DropdownMenuTrigger>
+                                                <DropdownMenuContent>
+                                                    <DropdownMenuLabel>One Way</DropdownMenuLabel>
+                                                    <DropdownMenuSeparator />
+                                                    <DropdownMenuItem disabled={true}>Round Trip</DropdownMenuItem>
 
-                                            </DropdownMenuContent>
-                                        </DropdownMenu>
-                                    </span>
-                                    <span className=' px-3 border-2 border-black md:shadow-none  md:border-none rounded-md shadow-lg '>
-                                        <Popover>
-                                            <PopoverTrigger className='flex items-center'><Users size={30} /><ChevronDown className='mt-1 font-light md:ml-3' /></PopoverTrigger>
-                                            <PopoverContent className='p-2 '>
-                                                <span className='flex flex-row p-2  text-left align-bottom '> Adult <Input className=' p-2 ml-6 ' type='number' placeholder='Adults' /></span>
-                                                <span className='flex flex-row p-2  text-left align-bottom'> Enfants <Input className=' p-2 ml-3 ' type='number' disabled={true} /></span>
+                                                </DropdownMenuContent>
+                                            </DropdownMenu>
+                                        </span>
+                                        <span className=' '>
+                                            <Popover>
+                                                <PopoverTrigger className='flex items-center space-y-3 '><Users size={30} /><ChevronDown className='mt-1 font-light md:ml-3' /></PopoverTrigger>
+                                                <PopoverContent className='p-2 '>
+                                                    <span className='flex flex-row p-2  text-left align-bottom '> Adult <Input className=' p-2 ml-6 ' type='number' placeholder='Adults' /></span>
+                                                    <span className='flex flex-row p-2  text-left align-bottom'> Enfants <Input className=' p-2 ml-3 ' type='number' disabled={true} /></span>
 
-                                            </PopoverContent>
-                                        </Popover>
-                                    </span>
-                                    <span className=' px-3 border-2 border-black rounded-md shadow-lg md:shadow-none md:border-none text-lg md:text-4xl font-extralight'>
-                                        <DropdownMenu>
-                                            <DropdownMenuTrigger className='flex items-center'>Eco - Class <ChevronDown className='mt-1 md:ml-3' /></DropdownMenuTrigger>
-                                            <DropdownMenuContent>
-                                                <DropdownMenuLabel>Economic Class</DropdownMenuLabel>
-                                                <DropdownMenuSeparator />
-                                                <DropdownMenuItem disabled={true}>First Class</DropdownMenuItem>
+                                                </PopoverContent>
+                                            </Popover>
+                                        </span>
+                                        <span className=' '>
+                                            <DropdownMenu>
+                                                <DropdownMenuTrigger className='flex items-center space-y-3'>Eco - Class <ChevronDown className='mt-1 md:ml-3' /></DropdownMenuTrigger>
+                                                <DropdownMenuContent>
+                                                    <DropdownMenuLabel>Economic Class</DropdownMenuLabel>
+                                                    <DropdownMenuSeparator />
+                                                    <DropdownMenuItem disabled={true}>First Class</DropdownMenuItem>
 
-                                            </DropdownMenuContent>
-                                        </DropdownMenu></span>
+                                                </DropdownMenuContent>
+                                            </DropdownMenu></span>
+                                    </div>
                                 </div>
                                 <div className=''>
 
                                     <form onSubmit={handleSubmit} >
-                                        <div className='flex max-w-[50%] mx-auto md:max-w-[100%] pt-4 '>
+                                        <div className='flex  max-w-[50%] mx-auto md:max-w-[100%] pt-4 '>
                                             <div className='block  space-y-3  md:space-y-0  md:flex'>
                                                 <input type='text' value={formValue.origin} onChange={handleOriginChange} className='p-2 w-52 border border-black rounded-md ' placeholder='Country From ex: MA' />
                                                 <input type='text' value={formValue.destination} onChange={handleDestinationChange} className='p-2  w-52 md:ml-2 border border-black rounded-md ' placeholder='Destination' />

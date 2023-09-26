@@ -18,16 +18,23 @@ const carouselData = [
     {
         id: 2,
         backgroundCity: '/images/dubaiuae.jpg',
-        prImage: '/images/dubai.png',
+        prImage: '/images/dubainew.png',
         cityName: 'DUBAI',
         cityPrice: `FROM ${'500'} $`
     },
     {
         id: 3,
         backgroundCity: '/images/france.jpg',
-        prImage: '/images/paris.png',
+        prImage: '/images/parisnew.png',
         cityName: 'PARIS',
         cityPrice: `FROM ${'300'} $`
+    },
+    {
+        id: 4,
+        backgroundCity: '/images/bangkokw.jpg',
+        prImage: '/images/bangoknew.png',
+        cityName: 'BANGKOK',
+        cityPrice: `FROM ${'600'} $`
     }
 ]
 
