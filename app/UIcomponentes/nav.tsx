@@ -44,11 +44,11 @@ const Nav = () => {
 
 
     return (
-        <nav className=" fixed top-0 left-0 w-full backdrop-blur-md bg-opacity-50 p-2 border-b-8 outline-double outline-green-900 border-red-800 z-10">
+        <nav className=" fixed z-30 top-0 left-0 w-full backdrop-blur-md bg-opacity-50 p-2 border-b-8 outline-double outline-green-900 border-red-800 ">
             <div className="container relative mx-auto flex justify-between items-center">
 
 
-                <div className='hidden md:flex bg-yellow-100 w-33  p-2 rounded-md shadow-lg animate-pulse'>
+                <div className='hidden md:flex bg-yellow-100 w-33  p-2 rounded-md shadow-lg '>
 
                     <AlertCircle className='mr-4 animate-ping text-red-600 duration-1000' />
                     <span className='ml-2 border-l-4 border-black px-2 '>ALERTS</span>

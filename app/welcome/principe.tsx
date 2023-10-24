@@ -88,7 +88,7 @@ export default function Principe() {
         <>
             <div
 
-                className="w-74 h-screen pb-24 ml-6  overflow-hidden relative grid place-items-center"
+                className=" relative flex justify-center items-center min-h-screen "
                 ref={ref}
             >
 
@@ -122,7 +122,7 @@ export default function Principe() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Image data-aos='fade-right' data-aos-delay='2000' className='absolute -right-2 md:right-0  m md:mb-11 ' width={200} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
+                    <Image data-aos='fade-right' data-aos-delay='2000' className='absolute -right-2 md:right-0  mt-6 md:mb-11 ' width={200} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
                 </motion.div>
 
                 <motion.div
