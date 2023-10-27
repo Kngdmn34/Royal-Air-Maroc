@@ -15,7 +15,7 @@ const carouselData = [
         backgroundCity: '/images/casablanca.jpg',
         prImage: '/images/casa.png',
         cityName: 'CASABLANCA',
-        cityPrice: `FROM ${'200'} $`
+        cityPrice: `DESCOVER`
     },
     {
         id: 2,
@@ -36,7 +36,7 @@ const carouselData = [
         backgroundCity: '/images/bangkokw.jpg',
         prImage: '/images/bangoknew.png',
         cityName: 'BANGKOK',
-        cityPrice: `DESCOVER`
+        cityPrice: `FROM ${'799'} $`
     }
 ]
 
