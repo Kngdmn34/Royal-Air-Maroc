@@ -1,46 +1,21 @@
 
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { z } from 'zod'
 //lib
 import { Tab } from '@headlessui/react';
 import { format } from "date-fns"
 import classNames from 'classnames';
 import Model from '@/app/UIcomponentes/model'
-import { Calendar as CalendarIcon } from "lucide-react"
-import { Calendar } from "@/components/ui/calendar"
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover"
-import { Input } from "@/components/ui/input";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 
 
-import { useForm } from "react-hook-form"
-import { cn } from "@/lib/utils"
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form"
-import { Button } from "@/components/ui/button"
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 
 
 //icons
 import { PlaneTakeoff, ChevronDown, Users, Luggage, PlaneLanding, ChevronLeft, CarFront, Bed, Utensils } from 'lucide-react';
+import clsx from 'clsx';
+
 
 
 interface Flight {
@@ -105,6 +80,7 @@ const FormValues = z.object({
 type FormValuesType = z.infer<typeof FormValues>;
 
 const Reservation = () => {
+
 
 
     const [data, setData] = useState<Flight[]>([])
@@ -220,7 +196,7 @@ const Reservation = () => {
     }
     return (
         <div className=" mx-auto w-full  md:max-w-[96%] border-4 border-gray-200 backdrop-blur-2xl overflow md:p-6 sm:px-0 rounded-xl shadow-xl">
-            <div data-aos='fade-left' data-aos-delay='1200' className='text-2xl tex-center md:text-6xl  text-white font-light p-2 md:ml-11 '>Book Your Flight </div><span className='flex text-white justify-end mr-2 p-4'><Model /></span>
+            <div data-aos='fade-left' data-aos-delay='1200' className='text-2xl tex-center md:text-6xl drop-shadow-xl cursor-default font-light p-2 md:ml-11 '>Book Your Flight </div><span className='flex text-white justify-end mr-2 p-4'><Model /></span>
             <div className=' p-2'>
                 <Tab.Group>
                     <Tab.List className="flex space-x-1 justify-center bg-gray-200 p-2 rounded-xl">
@@ -258,41 +234,41 @@ const Reservation = () => {
                             <FlightResults flights={data} setData={setData} />
                         )
                             :
-                            <Tab.Panel className='relative rounded-md bg-gray-100 p-3 backdrop-blur-lg shadow-md'>
-                                <div className='flex overflow-hidden   justify-between p-2 md:p-6 '>
-                                    <div className='block   mx-auto align-middle md:space-y-0 md:flex md:flex-row md:justify-between p-4  md:space-x-5 items-center  rounded-md shadow-lg text-lg md:text-4xl font-extralight'>
-                                        <span className='   '>
-                                            <DropdownMenu>
+                            <Tab.Panel className='relative rounded-md bg-gray-100   p-3 backdrop-blur-lg shadow-md'>
+                                <div className='flex justify-center items-center'>
+                                    <div className='hidden md:flex shadow-md text-2xl border-gray-400 p-2 border justify-between space-x-56 items-center'>
+                                        <Dropdown>
+                                            <DropdownTrigger>
+                                                <Button
+                                                    variant="flat"
+                                                    className='hover:opacity-80 '
+                                                >
+                                                    One Way
+                                                    <ChevronDown className='hover:translate-y-4  transition-transform' />
 
-                                                <DropdownMenuTrigger className='flex items-center space-y-3 '>One - Way <ChevronDown className='mt-1 md:ml-3' /></DropdownMenuTrigger>
-                                                <DropdownMenuContent>
-                                                    <DropdownMenuLabel>One Way</DropdownMenuLabel>
-                                                    <DropdownMenuSeparator />
-                                                    <DropdownMenuItem disabled={true}>Round Trip</DropdownMenuItem>
+                                                </Button>
+                                            </DropdownTrigger>
+                                            <DropdownMenu
+                                                disabledKeys={["roundTrip"]}
+                                                aria-label="Action event example"
+                                                onAction={(key) => alert(key)}
+                                                className={clsx(`bg-gray-50 px-5 shadow-xl`)}
+                                            >
+                                                <DropdownItem key="new">One Way</DropdownItem>
+                                                <DropdownItem key="roundTrip">Round Trip</DropdownItem>
 
-                                                </DropdownMenuContent>
                                             </DropdownMenu>
-                                        </span>
-                                        <span className=' '>
-                                            <Popover>
-                                                <PopoverTrigger className='flex items-center space-y-3 '><Users size={30} /><ChevronDown className='mt-1 font-light md:ml-3' /></PopoverTrigger>
-                                                <PopoverContent className='p-2 '>
-                                                    <span className='flex flex-row p-2  text-left align-bottom '> Adult <Input className=' p-2 ml-6 ' type='number' placeholder='Adults' /></span>
-                                                    <span className='flex flex-row p-2  text-left align-bottom'> Enfants <Input className=' p-2 ml-3 ' type='number' disabled={true} /></span>
+                                        </Dropdown>
 
-                                                </PopoverContent>
-                                            </Popover>
-                                        </span>
-                                        <span className=' '>
-                                            <DropdownMenu>
-                                                <DropdownMenuTrigger className='flex items-center space-y-3'>Eco - Class <ChevronDown className='mt-1 md:ml-3' /></DropdownMenuTrigger>
-                                                <DropdownMenuContent>
-                                                    <DropdownMenuLabel>Economic Class</DropdownMenuLabel>
-                                                    <DropdownMenuSeparator />
-                                                    <DropdownMenuItem disabled={true}>First Class</DropdownMenuItem>
+                                        <button disabled={true} className='hover:opacity-80'>
+                                            <Users />
+                                        </button>
 
-                                                </DropdownMenuContent>
-                                            </DropdownMenu></span>
+                                        <button disabled={true} className='hover:opacity-80'>
+                                            Eco
+                                        </button>
+
+
                                     </div>
                                 </div>
                                 <div className=''>
@@ -327,10 +303,10 @@ const Reservation = () => {
                 </Tab.Group >
             </div >
             <div className='hidden md:flex flex-row justify-between items-center  mx-auto bg-gray-100 rounded-md space-x-5 w-full p-3  align-middle mt-3 '>
-                <span data-aos="fade-right" className=' cursor-pointer   '><CarFront size={50} className='' /><span className='text-center'>Car Rent</span></span>
-                <span data-aos="fade-down" className=' cursor-pointer  '><Bed size={50} className='' /><span className=''>Hotels</span></span>
-                <span data-aos="fade-down" className='cursor-pointer '><Luggage size={50} className='' /><span className='text-center'>Luggage</span></span>
-                <span data-aos="fade-left" className='cursor-pointer  '><Utensils size={50} className='' /><span className=''>Meals</span></span>
+                <span data-aos="fade-right" className=' cursor-pointer   '><CarFront size={50} className='text-red-900/80' /><span className='font-semibold text-center text-gray-900/90'>Car Rent</span></span>
+                <span data-aos="fade-down" className=' cursor-pointer  '><Bed size={50} className='text-red-900/80' /><span className='font-semibold text-gray-900/90'>Hotels</span></span>
+                <span data-aos="fade-down" className='cursor-pointer '><Luggage size={50} className='text-red-900/80' /><span className='font-semibold text-center text-gray-900/90'>Luggage</span></span>
+                <span data-aos="fade-left" className='cursor-pointer  '><Utensils size={50} className='text-red-900/80' /><span className='font-semibold text-gray-900/90'>Meals</span></span>
             </div>
         </div >
 

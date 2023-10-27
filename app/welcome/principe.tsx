@@ -1,3 +1,4 @@
+
 //plugins
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
@@ -5,6 +6,7 @@ import Image from 'next/image'
 //icons
 import { ChevronRight, ChevronLeft } from 'lucide-react'
 import Airplane from '@/public/images/avioncut.png'
+import axios from 'axios'
 
 // cities images 
 const carouselData = [
@@ -34,14 +36,19 @@ const carouselData = [
         backgroundCity: '/images/bangkokw.jpg',
         prImage: '/images/bangoknew.png',
         cityName: 'BANGKOK',
-        cityPrice: `FROM ${'600'} $`
+        cityPrice: `DESCOVER`
     }
 ]
 
 const imageCount = carouselData.length;
 const autoSlideInterval = 5000;
 
+
+
 export default function Principe() {
+
+    //fetching price 
+
 
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -51,6 +58,7 @@ export default function Principe() {
 
     const [currentImage, setCurrentImage] = useState(0);
     const [textContent, setTextContent] = useState(carouselData[0]);
+    const [priceCity, setPriceCity] = useState(carouselData[0])
 
 
     const nextImage = () => {
@@ -76,6 +84,7 @@ export default function Principe() {
         setTextContent(carouselData[currentImage]);
     }, [currentImage]);
 
+
     useEffect(() => {
         const intervalId = setInterval(() => {
             nextImage()
@@ -97,7 +106,7 @@ export default function Principe() {
                     <motion.h1
 
                         style={{ y: textY }}
-                        className="font-bold text-white text-7xl md:text-9xl relative z-10"
+                        className="font-bold drop-shadow-md text-white text-5xl md:text-9xl relative z-10"
                         key={currentImage}
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -106,7 +115,7 @@ export default function Principe() {
 
                         {textContent.cityName}
 
-                        <span className="text-2xl flex border-l p-2">{textContent.cityPrice}</span>
+                        <span className="text-xl md:text-2xl flex border-l p-2">{textContent.cityPrice}</span>
                     </motion.h1>
                 </AnimatePresence>
                 <motion.div
@@ -122,7 +131,7 @@ export default function Principe() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Image data-aos='fade-right' data-aos-delay='2000' className='absolute -right-2 md:right-0  mt-6 md:mb-11 ' width={200} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
+                    <Image data-aos='fade-right' data-aos-delay='2000' className='hidden md:flex absolute drop-shadow-2xl -right-2 md:right-0  mt-6 md:mb-11 ' width={200} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
                 </motion.div>
 
                 <motion.div

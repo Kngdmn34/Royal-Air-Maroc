@@ -32,7 +32,7 @@ export default function RootLayout({
       <AOSInit />
       <body
 
-        className={poppins.className}>
+        className={`${poppins.className} bg-gray-50`}>
 
         {children}
         <footer className='mt-11' ><Footer /></footer>

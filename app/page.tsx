@@ -50,10 +50,13 @@ export default function Home() {
             <Principe />
           </span>
         </div>
+        <br />
 
-        <hr />
 
-        <h1 className='text-left p-6 text-5xl mt-11'>Start Your Next Trip</h1>
+        <hr className='w-full relative flex  border-b-8 outline-double outline-green-900 border-red-800' />
+        <br />
+        <h1 className='flex text-left cursor-default p-6 text-5xl mt-11'>Start Your Next Trip</h1>
+
         <div className=' flex justify-center text-left  w-full pb-6 mt-6 '>
           <Image data-aos="fade-up" className='  h-screen md:min-h-screen ' placeholder='blur' src={template} alt='bg' />
 
@@ -74,11 +77,13 @@ export default function Home() {
 
         <div className=''>
           <Image style={{ transform: `rotate(180deg)` }} data-aos="fade-up" className='absolute ml-3  h-44 md:hidden' placeholder='blur' src={template} alt='bg' />
-          <div className='absolute  flex flex-row max-w-[50%] ml-11 mx-auto md:hidden justify-between space-x-10 items-center   rounded-md   p-3  align-middle mt-3 '>
-            <span data-aos="fade-right" className='  '><CarFront size={50} className='' /><span className=''>Car Rent</span></span>
-            <span data-aos="fade-down" className='  '><Bed size={50} className='' /><span className=''>Hotels</span></span>
-            <span data-aos="fade-down" className=' align-middle '><Luggage size={50} className='' /><span className='text-center'>Luggage</span></span>
-            <span data-aos="fade-left" className=' '><Utensils size={50} className='' /><span className=''>Meals</span></span>
+          <h1 className='relative pt-3 cursor-default font-semibold text-xl tracking-wider flex justify-center mx-auto text-center md:hidden'>Our side Services </h1>
+          <div className='absolute  flex flex-row max-w-[50%] ml-11 mx-auto md:hidden justify-between space-x-10 items-center    rounded-md   p-3  align-middle mt-3 '>
+
+            <span data-aos="fade-right" className=' cursor-pointer whitespace-nowrap   '><CarFront size={50} className='text-red-900/80' /><span className='font-semibold text-center text-gray-900/90'>Car Rent</span></span>
+            <span data-aos="fade-down" className=' cursor-pointer  '><Bed size={50} className='text-red-900/80' /><span className='font-semibold text-gray-900/90'>Hotels</span></span>
+            <span data-aos="fade-down" className='cursor-pointer '><Luggage size={50} className='text-red-900/80' /><span className='font-semibold text-center text-gray-900/90'>Luggage</span></span>
+            <span data-aos="fade-left" className='cursor-pointer  '><Utensils size={50} className='text-red-900/80' /><span className='font-semibold text-gray-900/90'>Meals</span></span>
           </div>
         </div>
 
