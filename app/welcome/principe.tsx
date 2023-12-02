@@ -97,7 +97,7 @@ export default function Principe() {
         <>
             <div
 
-                className=" relative flex justify-center items-center min-h-screen "
+                className=" relative mx-auto mt-28 w-[80%] h-[80%] flex justify-center items-center "
                 ref={ref}
             >
 
@@ -131,7 +131,7 @@ export default function Principe() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <Image data-aos='fade-right' data-aos-delay='2000' className='hidden md:flex absolute drop-shadow-2xl -right-2 md:right-0  mt-6 md:mb-11 ' width={200} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
+                    <Image data-aos='fade-right' data-aos-delay='2000' className='hidden md:flex absolute drop-shadow-xl -right-2 lg:-right-10   mt-6 md:mb-11 ' width={200} src={Airplane} quality={100} alt='airplane' placeholder='blur' />
                 </motion.div>
 
                 <motion.div
