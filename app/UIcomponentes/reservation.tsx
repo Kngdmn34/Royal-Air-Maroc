@@ -195,7 +195,7 @@ const Reservation = () => {
         }
     }
     return (
-        <div className=" mx-auto w-full  md:max-w-[96%] border-4 border-gray-200 backdrop-blur-2xl overflow md:p-6 sm:px-0 rounded-xl shadow-xl">
+        <div className=" mx-auto w-full  md:max-w-[96%] border-4 border-gray-200 backdrop-blur-2xl  overflow-hidden md:p-6 sm:px-0 rounded-xl shadow-xl">
             <div data-aos='fade-left' data-aos-delay='1200' className='text-2xl tex-center md:text-6xl drop-shadow-xl cursor-default font-light p-2 md:ml-11 '>Book Your Flight </div><span className='flex text-white justify-end mr-2 p-4'><Model /></span>
             <div className=' p-2'>
                 <Tab.Group>

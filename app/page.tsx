@@ -75,19 +75,19 @@ export default function Home() {
 
 
 
-        <div className='w-[96%] mx-auto'>
+        <div className='w-[96%] mx-auto overflow-hidden  '>
           <Image style={{ transform: `rotate(180deg)` }} data-aos="fade-up" className='absolute   h-44 md:hidden' placeholder='blur' src={template} alt='bg' />
           <h1 className='relative pt-3 cursor-default font-semibold text-xl tracking-wider flex justify-center mx-auto text-center md:hidden'>Our side Services </h1>
           <div className='absolute  flex flex-row w-[50%] px-16  mx-auto md:hidden justify-between space-x-5 items-center    rounded-md p-1 align-middle mt-3 '>
 
-            <span data-aos="fade-right" className=' cursor-pointer whitespace-nowrap   '><CarFront size={50} className='text-red-900/80' /><span className='font-semibold text-center text-gray-900/90'>Car Rent</span></span>
-            <span data-aos="fade-down" className=' cursor-pointer  '><Bed size={50} className='text-red-900/80' /><span className='font-semibold text-gray-900/90'>Hotels</span></span>
-            <span data-aos="fade-down" className='cursor-pointer '><Luggage size={50} className='text-red-900/80' /><span className='font-semibold text-center text-gray-900/90'>Luggage</span></span>
-            <span data-aos="fade-left" className='cursor-pointer  '><Utensils size={50} className='text-red-900/80' /><span className='font-semibold text-gray-900/90'>Meals</span></span>
+            <span className=' cursor-pointer whitespace-nowrap   '><CarFront size={50} className='text-red-900/80' /><span className='font-semibold text-center text-gray-900/90'>Car Rent</span></span>
+            <span className=' cursor-pointer  '><Bed size={50} className='text-red-900/80' /><span className='font-semibold text-gray-900/90'>Hotels</span></span>
+            <span className='cursor-pointer '><Luggage size={50} className='text-red-900/80' /><span className='font-semibold text-center text-gray-900/90'>Luggage</span></span>
+            <span className='cursor-pointer  '><Utensils size={50} className='text-red-900/80' /><span className='font-semibold text-gray-900/90'>Meals</span></span>
           </div>
         </div>
 
-        <div data-aos="flip-up" data-aos-delay='200' className='md:max-w-[50%] md:mx-auto mt-48  p-2 md:mt-28  '>
+        <div className='md:max-w-[50%] md:mx-auto mt-48  p-2 md:mt-28  '>
 
           <Oneworld />
 

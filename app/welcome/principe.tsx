@@ -69,7 +69,7 @@ export default function Principe() {
         setCurrentImage((prevImage) => (prevImage - 1 + imageCount) % imageCount);
     };
 
-    const backgroundY = useTransform(scrollYProgress, [0, 1], ['0', '100%']);
+    const backgroundY = useTransform(scrollYProgress, [0, 1], ['0', '200%']);
     const textY = useTransform(scrollYProgress, [0, 1], ['0', '200%']);
 
     const imageSpring = useSpring(0);
@@ -97,7 +97,7 @@ export default function Principe() {
         <>
             <div
 
-                className=" relative mx-auto mt-28 w-[80%] h-[80%] flex justify-center items-center "
+                className=" relative mx-auto  mt-16 w-[92%] min-h-screen flex justify-center items-center "
                 ref={ref}
             >
 
@@ -106,7 +106,7 @@ export default function Principe() {
                     <motion.h1
 
                         style={{ y: textY }}
-                        className="font-bold drop-shadow-md text-white text-5xl md:text-9xl relative z-10"
+                        className="font-bold drop-shadow-md text-white text-4xl md:text-9xl relative z-10"
                         key={currentImage}
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -135,7 +135,7 @@ export default function Principe() {
                 </motion.div>
 
                 <motion.div
-                    className="absolute inset-0 z-20"
+                    className="absolute overflow-hidden  inset-0 z-20"
                     style={{
                         backgroundImage: `url(${carouselData[currentImage].prImage})`,
                         backgroundPosition: 'center',
