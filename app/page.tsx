@@ -75,10 +75,10 @@ export default function Home() {
 
 
 
-        <div className=''>
-          <Image style={{ transform: `rotate(180deg)` }} data-aos="fade-up" className='absolute ml-3  h-44 md:hidden' placeholder='blur' src={template} alt='bg' />
+        <div className='w-[96%] mx-auto'>
+          <Image style={{ transform: `rotate(180deg)` }} data-aos="fade-up" className='absolute   h-44 md:hidden' placeholder='blur' src={template} alt='bg' />
           <h1 className='relative pt-3 cursor-default font-semibold text-xl tracking-wider flex justify-center mx-auto text-center md:hidden'>Our side Services </h1>
-          <div className='absolute  flex flex-row max-w-[50%] ml-11 mx-auto md:hidden justify-between space-x-10 items-center    rounded-md   p-3  align-middle mt-3 '>
+          <div className='absolute  flex flex-row w-[50%] px-16  mx-auto md:hidden justify-between space-x-5 items-center    rounded-md p-1 align-middle mt-3 '>
 
             <span data-aos="fade-right" className=' cursor-pointer whitespace-nowrap   '><CarFront size={50} className='text-red-900/80' /><span className='font-semibold text-center text-gray-900/90'>Car Rent</span></span>
             <span data-aos="fade-down" className=' cursor-pointer  '><Bed size={50} className='text-red-900/80' /><span className='font-semibold text-gray-900/90'>Hotels</span></span>
